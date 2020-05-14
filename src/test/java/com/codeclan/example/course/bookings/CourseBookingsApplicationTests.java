@@ -26,10 +26,6 @@ class CourseBookingsApplicationTests {
 	void contextLoads() {
 	}
 
-	@Test
-	public void testing(){
 
-		List<Customer> foundCustomer = customerRepository.findByBookingsCourseCourseName("Java");
-	}
 
 }
