@@ -1,7 +1,6 @@
 package com.codeclan.example.course.bookings.controllers;
 
 import com.codeclan.example.course.bookings.models.Course;
-import com.codeclan.example.course.bookings.models.Customer;
 import com.codeclan.example.course.bookings.repositories.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -40,9 +39,8 @@ public class CourseController {
 
     @PutMapping(value = "/courses/{id}")
     public ResponseEntity<Course> putCourse(@RequestBody Course course, @PathVariable Long id) {
-        if(course.getId() != id){
-
-        }
+        courseRepository.save(course);
+        return new ResponseEntity<>(course, HttpStatus.CREATED);
     }
 
     @DeleteMapping(value = "/courses/{id}")
