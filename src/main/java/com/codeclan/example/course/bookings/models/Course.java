@@ -15,7 +15,7 @@ public class Course {
     private long id;
 
     @Column
-    private String name;
+    private String courseName;
 
     @Column
     private String town;
@@ -24,11 +24,11 @@ public class Course {
     private int rating;
 
     @JsonBackReference
-    @OneToMany
+    @OneToMany(mappedBy = "course")
     private List<Booking> bookings;
 
-    public Course(String name, String town, int rating) {
-        this.name = name;
+    public Course(String courseName, String town, int rating) {
+        this.courseName = courseName;
         this.town = town;
         this.rating = rating;
         this.bookings = new ArrayList<>();
@@ -45,12 +45,12 @@ public class Course {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getcourseName() {
+        return courseName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setcourseName(String courseName) {
+        this.courseName = courseName;
     }
 
     public String getTown() {
